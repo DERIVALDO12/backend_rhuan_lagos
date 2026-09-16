@@ -40,7 +40,7 @@ function validarTreino(corpo) {
 // GET /treinos - lista todos os treinos
 // ------------------------------------------------------------
 app.get('/treinos', (req, res) => {
-res.status(200).json(treinos);
+    res.status(200).json(treinos);
 });
 
 
@@ -48,12 +48,12 @@ res.status(200).json(treinos);
 // GET /treinos/:id - busca um treino pelo id (404 se nao existir)
 // ------------------------------------------------------------
 app.get('/treinos/:id', (req, res) => {
-const id = Number(req.params.id);
-const treino = treinos.find((t) => t.id === id);
-if (treino === undefined) {
-return res.status(404).json({ erro: 'Treino nao encontrado.' });
-}
-res.status(200).json(treino);
+    const id = Number(req.params.id);
+    const treino = treinos.find((t) => t.id === id);
+    if (treino === undefined) {
+        return res.status(404).json({ erro: 'Treino nao encontrado.' });
+    }
+    res.status(200).json(treino);
 });
 
 // ------------------------------------------------------------
@@ -104,8 +104,6 @@ app.delete('/treinos/:id', (req, res) => {
     treinos.splice(posicao, 1);
     res.status(204).end();
 });
-
-
 
 // ------------------------------------------------------------
 const PORTA = 3000;
