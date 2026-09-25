@@ -93,3 +93,13 @@ GET {{url}}/treinos
 
 ### 13 - Encontrar treinos que contêm "peito" -> espera 200 e apenas treinos de peito
 GET {{url}}/treinos?busca=peito
+
+### 14 - Obter resumo estatístico dos treinos -> espera 200 com total, minutos e media
+GET {{url}}/treinos/resumo
+Content-Type: application/json
+
+### 15 - Buscar um treino com ID inválido (letras) -> espera 400
+GET {{url}}/treinos/abc
+
+### 16 - Buscar um treino com ID que não existe (mas numérico) -> espera 404
+GET {{url}}/treinos/99999
