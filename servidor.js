@@ -48,10 +48,21 @@ function validarTreino(corpo) {
 // GET /treinos - lista todos os treinos
 // ------------------------------------------------------------
 app.get('/treinos', (req, res) => {
-const treinos = db.prepare('SELECT * FROM treinos').all();
-res.status(200).json(treinos);
-});
+  const { busca } = req.query;
 
+  // Se o usuario informou um parametro de busca, filtra os resultados
+  if (busca) {
+    const treinosFiltrados = db
+      .prepare('SELECT * FROM treinos WHERE nome LIKE ? COLLATE NOCASE')
+      .all(`%${busca}%`);
+    
+    return res.status(200).json(treinosFiltrados);
+  }
+
+  // Se nao informou busca, lista todos normalmente
+  const treinos = db.prepare('SELECT * FROM treinos').all();
+  res.status(200).json(treinos);
+});
 // ------------------------------------------------------------
 // GET /treinos/:id - busca um treino pelo id (404 se nao existir)
 // ------------------------------------------------------------
@@ -117,3 +128,5 @@ const PORTA = 3000;
 app.listen(PORTA, () => {
     console.log(`Servidor rodando em http://localhost:${PORTA}`);
 });
+
+

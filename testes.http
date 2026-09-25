@@ -90,3 +90,6 @@ DELETE {{url}}/treinos/99999
 
 ### 12 - Listar de novo pra conferir       -> espera 200
 GET {{url}}/treinos
+
+### 13 - Encontrar treinos que contêm "peito" -> espera 200 e apenas treinos de peito
+GET {{url}}/treinos?busca=peito
