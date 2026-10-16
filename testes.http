@@ -56,7 +56,7 @@ Content-Type: application/json
 
 {
     "nome": "Corrida",
-    "duracao": -5
+    "duracao": 500
 }
 
 
@@ -71,12 +71,12 @@ Content-Type: application/json
 
 
 ### 9 - Alterar um treino que nao existe   -> espera 404
-PUT {{url}}/treinos/99999
+PUT {{url}}/treinos/9999
 Content-Type: application/json
 
 {
     "nome": "Qualquer",
-    "duracao": 10
+    "duracao": 200
 }
 
 
