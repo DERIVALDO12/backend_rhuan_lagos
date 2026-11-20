@@ -1,4 +1,5 @@
 const service = require('../services/treinosService.js');
+const authController = require('./authController.js');
 function listar(req, res) {
     const treinos = service.listarTodos();
     res.status(200).json(treinos);
@@ -20,6 +21,10 @@ function criar(req, res) {
         return res.status(400).json({ erro: resultado.erro });
     }
     res.status(201).json(resultado.treino);
+    const dono = authController.usuarioDaRequisicao(req);
+    if (dono === null) {
+        return res.status(401).json({ erro: 'Faca login primeiro.' });
+    }
 }
 function atualizar(req, res) {
     const id = Number(req.params.id);

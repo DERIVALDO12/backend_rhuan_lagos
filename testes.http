@@ -103,3 +103,97 @@ GET {{url}}/treinos/abc
 
 ### 16 - Buscar um treino com ID que não existe (mas numérico) -> espera 404
 GET {{url}}/treinos/99999
+
+### 17 - Fazer login com usuário e senha válidos -> espera 200 e cria o cookie sid
+POST {{url}}/login
+Content-Type: application/json
+
+{
+  "usuario": "diego",
+  "senha": "1234"
+}
+
+### 18 - Acessar perfil estando logado -> espera 200 com os dados do usuário
+GET {{url}}/perfil
+
+### 19 - Fazer logout -> espera 200 e limpa o cookie
+POST {{url}}/logout
+
+### 20 - Tentar acessar perfil depois do logout -> espera 401
+GET {{url}}/perfil
+
+### 21 - Login com senha errada -> espera 401
+POST {{url}}/login
+Content-Type: application/json
+
+{
+  "usuario": "diego",
+  "senha": "senha_errada"
+}
+
+### 22 - Login com usuário que não existe -> espera 401
+POST {{url}}/login
+Content-Type: application/json
+
+{
+  "usuario": "nao_existe",
+  "senha": "1234"
+}
+
+### 23 - Login sem enviar usuário ou senha -> espera 401
+POST {{url}}/login
+Content-Type: application/json
+
+### 24 - Logar como diego -> espera 200
+POST {{url}}/login
+Content-Type: application/json
+
+{
+  "usuario": "diego",
+  "senha": "1234"
+}
+
+### 25 - Conferir perfil do diego -> espera 200 (usuario: "diego")
+GET {{url}}/perfil
+
+### 26 - Logar como aluno (troca o cookie) -> espera 200
+POST {{url}}/login
+Content-Type: application/json
+
+{
+  "usuario": "aluno",
+  "senha": "senha"
+}
+
+### 27 - Conferir perfil do aluno -> espera 200 (usuario: "aluno")
+GET {{url}}/perfil
+
+### 28 - Fazer logout antes de testar rota protegida -> espera 204
+POST {{url}}/logout
+
+### 29 - Tentar criar treino SEM estar logado -> espera 401
+POST {{url}}/treinos
+Content-Type: application/json
+
+{
+  "nome": "Treino Proibido",
+  "duracao": 30
+}
+
+### 30 - Logar novamente -> espera 200
+POST {{url}}/login
+Content-Type: application/json
+
+{
+  "usuario": "diego",
+  "senha": "1234"
+}
+
+### 31 - Criar treino ESTANDO logado -> espera 201
+POST {{url}}/treinos
+Content-Type: application/json
+
+{
+  "nome": "Treino Liberado",
+  "duracao": 30
+}
