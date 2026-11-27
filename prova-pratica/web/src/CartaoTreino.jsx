@@ -25,11 +25,34 @@
 //
 // Abaixo tem so um esqueleto que mostra o nome, para o build funcionar.
 // ---------------------------------------------------------------
-export default function CartaoTreino(props) {
+export default function CartaoTreino({ treino, onConcluir, onApagar }) {
+  const concluido = Boolean(treino.concluido);
+
   return (
     <li className="item">
       <div className="item-info">
-        <strong>{props.treino.nome}</strong>
+        <strong>{treino.nome}</strong>
+        <span className="suave">{treino.duracao} min</span>
+        {concluido && <span className="selo feito">concluído</span>}
+      </div>
+
+      <div className="acoes">
+        {!concluido && (
+          <button
+            type="button"
+            className="secundario"
+            onClick={() => onConcluir(treino.id)}
+          >
+            Concluir
+          </button>
+        )}
+        <button
+          type="button"
+          className="perigo"
+          onClick={() => onApagar(treino.id)}
+        >
+          Apagar
+        </button>
       </div>
     </li>
   );
