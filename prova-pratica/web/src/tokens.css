@@ -32,43 +32,42 @@
      ------------------------------------------------------------------ */
 
   /* cor principal da marca (botões, títulos, links).
-     No Figma: procure o botão mais importante da tela. Pega o Fill dele. */
-  --cor-primaria: #000;
+     No Figma: botão "Novo treino" / "Salvar" → #2663EB */
+  --cor-primaria: #2663EB;
   --cor-primaria-texto: #fff; /* texto que fica EM CIMA da cor primária (geralmente branco) */
 
   /* cor de destaque leve (fundos de selo, realce).
-     No Figma: algum fundo suave, tipo o de uma tag ou badge. */
-  --cor-secundaria: #eee;
+     No Figma: fundos suaves / áreas de apoio */
+  --cor-secundaria: #EEF2FF;
 
   /* fundo geral da página.
-     No Figma: seleciona o frame principal (o "Page"/"Home"). Inspect -> Fill. */
-  --cor-fundo: #fff;
+     No Figma: frame principal / propriedades → #F5F7FA */
+  --cor-fundo: #F5F7FA;
 
   /* fundo de cartões e campos (inputs).
-     No Figma: seleciona um card branco (ou cinza claro). Inspect -> Fill. */
-  --cor-superficie: #fff;
+     No Figma: cartões brancos da lista e formulário */
+  --cor-superficie: #FFFFFF;
 
   /* cor padrão dos textos.
-     No Figma: seleciona um parágrafo. Inspect -> Fill do texto. */
-  --cor-texto: #000;
+     No Figma: títulos e textos principais → ~#161C28 */
+  --cor-texto: #161C28;
 
   /* cor dos textos fracos (label, dica, data, "cinza").
-     No Figma: seleciona um texto secundário (ex: "3 treinos concluídos").
-     Inspect -> Fill. */
-  --cor-texto-suave: #666;
+     No Figma: textos secundários (minutos, labels) → ~#6C6F78 */
+  --cor-texto-suave: #6C6F78;
 
   /* cor das bordas (linhas, contornos de input, separadores).
-     No Figma: seleciona um input ou uma linha divisória. Inspect -> Stroke. */
-  --cor-borda: #999;
+     No Figma: bordas de inputs e divisórias → ~#E4E4E4 */
+  --cor-borda: #E4E4E4;
 
   /* cores de status (não vêm do Figma, são semânticas).
      verde  = deu certo / concluído
-     vermelho = deu erro
+     vermelho = deu erro (botão "Sim, excluir" / mensagens de erro → #DB2424)
      laranja = aviso / pendente
      Pode ajustar pro tom que combinar com a paleta do Figma. */
-  --cor-sucesso: #070;
-  --cor-erro: #c00;
-  --cor-aviso: #b60;
+  --cor-sucesso: #16A34A;
+  --cor-erro: #DB2424;
+  --cor-aviso: #D97706;
 
 
   /* ------------------------------------------------------------------
@@ -76,21 +75,17 @@
      ------------------------------------------------------------------ */
 
   /* arredondamento dos CARTÕES (blocos grandes).
-     No Figma: seleciona um cartão. Inspect -> "Corner radius" (ex: 10).
-     Se o Figma tiver cantos diferentes por canto, use o maior. */
-  --raio-borda: 0px;
+     No Figma: frame "1. Lista de treinos" mostra Raio 24px;
+     cartões internos usam valor intermediário (12–16px). */
+  --raio-borda: 16px;
 
   /* arredondamento dos BOTÕES e INPUTS (elementos pequenos).
-     No Figma: seleciona um botão. Inspect -> "Corner radius" (ex: 8).
-     Botão quadrado = 0px. Botão "pílula" = 999px. */
-  --raio-botao: 0px;
+     No Figma: botão "Novo treino" / "Salvar" ≈ 8px de raio. */
+  --raio-botao: 8px;
 
   /* sombra dos cartões.
-     No Figma: seleciona um cartão. Painel direito -> "Effects" ->
-     "+" -> Drop shadow. Copia os 4 números (X, Y, blur, cor).
-     Exemplo: 0 1px 3px rgba(0,0,0,0.08)
-     Se não tiver sombra no Figma, deixa "none". */
-  --sombra: none;
+     No Figma: sombra bem sutil nos cartões. */
+  --sombra: 0 1px 3px rgba(0, 0, 0, 0.06);
 
 
   /* ------------------------------------------------------------------
@@ -102,20 +97,16 @@
      ------------------------------------------------------------------ */
 
   /* fonte de todos os textos.
-     No Figma: seleciona um texto. Inspect -> "Font family".
-     Se for uma fonte padrão do sistema, usa: sans-serif, serif, monospace.
-     Se for do Google Fonts, coloca o nome entre aspas: 'Inter', sans-serif */
-  --fonte: sans-serif;
+     No Figma: sans-serif limpa (sistema / Inter). */
+  --fonte: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   /* tamanho base dos textos (parágrafos, labels, inputs).
-     No Figma: seleciona um parágrafo. Inspect -> "Size".
-     Geralmente 16px é o padrão. */
+     No Figma: tamanho padrão dos textos do formulário e lista. */
   --tamanho-base: 16px;
 
-  /* tamanho do título principal (h1, "Treinos", "Diagnóstico").
-     No Figma: seleciona o título. Inspect -> "Size".
-     Ex: se for 24, coloca 1.5rem (= 24px). Se for 32, coloca 2rem. */
-  --tamanho-titulo: 1.4rem;
+  /* tamanho do título principal (h1, "Diário de Treinos").
+     No Figma: título da tela. */
+  --tamanho-titulo: 1.5rem;
 
 
   /* ------------------------------------------------------------------
@@ -123,8 +114,6 @@
      ------------------------------------------------------------------ */
 
   /* espaço entre as seções (cartões, abas, cabeçalho).
-     No Figma: seleciona dois cartões e olha a distância entre eles no
-     painel Inspect. Ou olha o "Padding" do container principal.
-     Geralmente 16 ou 24. */
+     No Figma: propriedades do frame → Espaço 16px / paddings laterais 20px. */
   --espacamento: 16px;
 }

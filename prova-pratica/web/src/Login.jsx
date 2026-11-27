@@ -16,6 +16,12 @@ export default function Login({ onEntrar }) {
   //         e a senha precisa ter pelo menos 4 caracteres.
   // ---------------------------------------------------------------
   function validar() {
+    if (usuario.trim() === '') {
+      return 'O usuário não pode ficar vazio.';
+    }
+    if (senha.length < 4) {
+      return 'A senha precisa ter pelo menos 4 caracteres.';
+    }
     return '';
   }
 
@@ -80,7 +86,12 @@ export default function Login({ onEntrar }) {
           feito, o que voce digita nao chega no estado e o login falha. */}
       <div className="campo">
         <label htmlFor="usuario">Usuário</label>
-        <input id="usuario" autoComplete="username" />
+        <input
+          id="usuario"
+          autoComplete="username"
+          value={usuario}
+          onChange={(e) => setUsuario(e.target.value)}
+        />
       </div>
 
       <div className="campo">
@@ -89,6 +100,8 @@ export default function Login({ onEntrar }) {
           id="senha"
           type="password"
           autoComplete={modo === 'entrar' ? 'current-password' : 'new-password'}
+          value={senha}
+          onChange={(e) => setSenha(e.target.value)}
         />
       </div>
 
